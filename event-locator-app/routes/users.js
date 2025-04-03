@@ -132,15 +132,15 @@ router.post('/login', async (req, res) => {
 
 // Get all users
 router.get('/users', async (req, res) => {
-    const sql = "SELECT * FROM users";  // Use the same query you ran directly in SQLite
+    const sql = "SELECT * FROM users";  
 
     db.all(sql, [], (err, rows) => {
         if (err) {
-            console.error("Database error:", err);  // Log the error
+            console.error("Database error:", err);  
             return res.status(500).json({ message: "Database error" });
         }
-        console.log("Fetched users:", rows);  // Log the fetched rows
-        res.json(rows);  // Send the result back to the client
+        console.log("Fetched users:", rows); 
+        res.json(rows); 
     });
 });
 

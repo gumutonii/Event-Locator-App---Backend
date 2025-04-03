@@ -34,7 +34,7 @@ app.listen(PORT, () => {
 // SQLite Database connection
 const sqlite3 = require('sqlite3').verbose();
 
-// Correct path to the database
+//  path to the database
 const dbPath = path.join(__dirname, 'database', 'database.db');  // Make sure path is correct
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {

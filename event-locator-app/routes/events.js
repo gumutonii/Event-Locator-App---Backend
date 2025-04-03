@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const authenticateUser = require('../middleware/auth'); // Ensure authentication middleware
+const authenticateUser = require('../middleware/auth'); 
 const db = require('../config/db');
-const authenticateToken = require('../middleware/auth');  // Ensure correct path
+const authenticateToken = require('../middleware/auth'); 
 
 
 // POST /api/events - Create a new event
@@ -13,7 +13,7 @@ require('dotenv').config();
 router.post('/', authenticateToken, async (req, res) => {
     try {
         const { title, description, date, location } = req.body;
-        const userId = req.user.id; // 🚨 Check if `req.user` exists
+        const userId = req.user.id; 
 
         if (!userId) {
             return res.status(400).json({ message: "User is missing in request." });
@@ -24,7 +24,7 @@ router.post('/', authenticateToken, async (req, res) => {
             description,
             date,
             location,
-            user: userId // Ensure the user is correctly set
+            user: userId 
         });
 
         await newEvent.save();
